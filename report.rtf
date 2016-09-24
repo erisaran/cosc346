@@ -1,0 +1,60 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww16580\viewh19960\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Assignment 1 report\
+\
+
+\fs36 Matrix and Vector Library -
+\fs24 \
+\
+
+\fs36 Matrix -\
+
+\fs24 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
+\cf0 Each matrix object is made up of a series of vector objects. Calling the initializers for Matrix<T> sets 3 data fields within the object. One for the number of rows, one for the number of columns and the third is an array of Vector<T> objects which store the data for each row. \
+\
+The description function for matrix calls the description method of its constituent vector objects and prints them out line by line. \
+\
+The transpose function creates a series of vectors with the transposed data and creates a new matrix object with them. \
+\
+Vector view works by checking first is there is one row or one column and then returns either the vector stored in the matrix objects \'91contents\'92 data field or if the matrix has one column it creates a new vector using each value stored in each of the vector objects and calls an initializer that sets the new vector objects \'91iscol\'92 data field to true in order to store that it is a column.\
+\
+The row function simply returns the vector at the corresponding position in the matrix objects \'91contents\'92 field.\
+\
+The column function creates a new vector using each value stored at the index position of each vector object in the matrix.\
+\
+I made a secondary subscript function for matrix which takes a single index and calls the row function on itself to conveniently reference a vector contained in the matrix.\
+\
+All of the maths function that matrix implements uses calls to the maths functions for the vectors so the vector object does all of the logic for adding individual values. All the matrix function needs to do is call these function in the right order. The + function for adding two matrices calls the + function for each vector object of both matrices and it does this for each row in the matrix.\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs36 \cf0 Vector -
+\fs24 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
+\cf0 \
+The vector class has two data fields. One is an array of value of type T the second is a boolean which represents if the vector is supposed to be a column, this is false by default. I made two extra initializers, one makes it convenient for creating a vector representing a column and takes as parameters the numbers to store and a boolean representing if its a column. The other initializer creates a vector with the values specified at creation rather than just creating a zero value vector object.\
+\
+The description function prints out each value with a space between each.\
+\
+The matrixview function checks if the vector is a column or not, if not it just returns a matrix with a single row containing itself. If it is a column it creates a matrix with a series of vector objects each with one value. \
+\
+The maths functions in the vector object do all the arithmetic between each data value.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 As a matrix is just a series of vector objects I chose to have the matrix object store references to vector objects to represent each row of the matrix.\
+\
+ \
+\
+\
+\
+\
+\
+}
